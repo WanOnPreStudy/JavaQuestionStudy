@@ -107,8 +107,6 @@ public class ShinhanCardPaymentService implements CardPaymentService {
 ### DI(Dependency Injection, 의존성 주입)
 
 오브젝트를 직접 생성이 아닌 외부에서 주입받는 방식
-
-
 ---
 
 참고
