@@ -52,16 +52,27 @@ System.out.println(a==c);    //false
 //reference type - Integer
 Integer i1 = new Integer(10);
 Integer i2 = new Integer(10);
-Integer i3 = Integer.valueOf(10);
-Integer i4 = Integer.valueOf(10);
 
 System.out.println(i1 == i2); // false
 System.out.println(i1.equals(i2)); // true
+
+Integer i3 = Integer.valueOf(10); // Integer i3 = 10;
+Integer i4 = Integer.valueOf(10);
+
 System.out.println(i3 == i4); // true
+
+Integer i5 = Integer.valueOf(1000);
+Integer i6 = Integer.valueOf(1000);
+        
+System.out.println(i5 == i6); // false
 ```
 == 연산자는 reference type에 대해서는 주소값을 비교
 
 equals 연산자는 내용일 비교
+
+Integer 클래스는 내부에서 integer 사용을 위해 IntegerCache를 관리합니다. 
+이 캐시의 기본 범위는 -128 ~ 127이며, Integer.valueOf() 메소드는 캐시 범위에 해당하는 objects를 리턴합니다. 
+그렇기에, i3와 i4 둘다, 같은 object 를 가리키게 되므로, i3==i4는 true
 
 ```java
 //reference type - String
