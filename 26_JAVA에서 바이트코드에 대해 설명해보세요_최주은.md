@@ -1,3 +1,5 @@
+# 자바 바이트 코드
+ 
 **들아가기 전에 간단히**
 
 -   java의 특징 중 하나는 OS에 독립적이다 라는 것입니다.
@@ -7,7 +9,6 @@
 <br/>
 
 ## 자바 바이트 코드란 
----
 
 **바이트 코드**
 
@@ -29,7 +30,6 @@
 <br/>
 
 ## 바이트 코드 확인하는 방법
----
 
 ### 바이트 코드 확인하기
 
@@ -40,13 +40,15 @@ intellij에서 프로젝트를 빌트 시킨 후에 바이트 코드를 확인�
 
 <img
     src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FMOyby%2FbtrQIuvn8lO%2Fh9uYUARuV0MMfKUvLDQ7k0%2Fimg.png"
-    width="40%"
-    height="40%"
-  />
+    width="30%"
+    height="30%"
+/>
+
+<br/>
 
 **Bytecode.java**
 
-```
+```java
 public class Bytecode {
     public static void main(String[] args) {
         int a = 5;
@@ -55,10 +57,11 @@ public class Bytecode {
     }
 }
 ```
+<br/>
 
 **Bytecode.java의 바이트코드**
 
-```
+```java
 // class version 55.0 (55)
 // access flags 0x21
 public class com/example/baseproject/Bytecode {
@@ -111,13 +114,15 @@ public class com/example/baseproject/Bytecode {
 
 intellij에서 바이트 코드를 확인하고 싶은 파일의 .class 폴더를 터미널로 열고  
 
-javap -c \[클래스파일이름\] 을 입력하면 아래와 같은 바이너리 코드를 확인할 수 있습니다.
+``javap -c \[클래스파일이름\]`` 을 입력하면 아래와 같은 바이너리 코드를 확인할 수 있습니다.
 
 또한 javap의 다른 옵션들을 이용하여 더 자세한 정보들을 볼 수도 있습니다. (javap는 바이너리인 바이트코드 .class 파일을 텍스트로 보여주는 일종의 역어셈블러 프로그램입니다)
 
+<br/>
+
 **Bytecode.java의 바이트코드**
 
-```
+```java
 Compiled from "Bytecode.java"
 public class com.example.baseproject.Bytecode {
   public com.example.baseproject.Bytecode();
@@ -143,7 +148,6 @@ public class com.example.baseproject.Bytecode {
 <br/>
 
 ## 바이트 코드 동작 살펴보기
----
 
 바이트 코드의 동작을 살펴보기 전에 바이너리 코드에서는 아래와 같이 각 타입들이 고유의 표현을 같습니다.
 
@@ -166,7 +170,7 @@ public class com.example.baseproject.Bytecode {
 
 타입의 표현도 알아봤으니 이제 위에서 확인한 바이트 코드를 조금 더 자세히 살펴보겠습니다.
 
-```
+```java
 public com.example.baseproject.Bytecode();
     Code:
        0: aload_0
@@ -181,7 +185,7 @@ public com.example.baseproject.Bytecode();
 
 <br/>
 
-```
+```java
 public static void main(java.lang.String[]);
     Code:
        0: iconst_5
@@ -198,17 +202,17 @@ public static void main(java.lang.String[]);
 
 main함수 내에서 동작하는 코드입니다. (코드 앞에 번호는 바이트 번호를 의미합니다 getstatic의 경우 2byte의 피연산자를 필요로 하기 때문에 바이트 번호가 4 -> 7로 넘어가는 것을 확인 할 수 있습니다.) 
 
--   iconst\_5 :  iconst로 5를 스택(Operand stack)에 push 하고
--   istore\_1: 다시 pop 해서 local variable array 인덱스 1에 저장 (istore #index: int 값을 변수 #index에 저장)
--   getstatic #2:  현재 클래스 상수 풀에서 2번 인덱스에 해당하는 클래스의 정적 필드 값 가져오기 (여기서는 java/lang/System.out:Ljava/io/PrintStream)
--   iload\_1:  local variable array 인덱스 1에서  int 값을 가져와서 다시 스택에 넣는다 (iload\_#index: #index에서 값을 가져옴)
--   iadd : int의 add연산 실행 
--   invokevirtual #3: 현재 클래스 상수 풀에서 3번 인덱스에 해당하는 메서드(여기서는 print)를 호출하고 결과를 스택에 넣습니다.
--   return : 메서드에서 void 반환
+-   `iconst\_5` :  iconst로 5를 스택(Operand stack)에 push 하고
+-   `istore\_1`: 다시 pop 해서 local variable array 인덱스 1에 저장 (istore #index: int 값을 변수 #index에 저장)
+-   `getstatic #2`:  현재 클래스 상수 풀에서 2번 인덱스에 해당하는 클래스의 정적 필드 값 가져오기 (여기서는 java/lang/System.out:Ljava/io/PrintStream)
+-   `iload\_1` :  local variable array 인덱스 1에서  int 값을 가져와서 다시 스택에 넣는다 (iload\_#index: #index에서 값을 가져옴)
+-   `iadd` : int의 add연산 실행 
+-   `invokevirtual #3` : 현재 클래스 상수 풀에서 3번 인덱스에 해당하는 메서드(여기서는 print)를 호출하고 결과를 스택에 넣습니다.
+-   `return` : 메서드에서 void 반환
 
 <br/>
 
 **더 많은  OpCode는 [여기](https://en.wikipedia.org/wiki/List_of_Java_bytecode_instructions) 에서 확인할 수 있습니다.**
 
-**바이너리 코드에 대한 더 자세한 정리는 [바이너리 코드(2)](https://jueun275.tistory.com/entry/Java-%EB%B0%94%EC%9D%B4%ED%8A%B8-%EC%BD%94%EB%93%9C2-%EB%B0%94%EC%9D%B4%ED%8A%B8-%EC%BD%94%EB%93%9C-%EC%98%88%EC%A0%9C) 에서 볼 수 있습니다.**
+**바이너리 코드에 대한 더 자세한 정리는 [바이너리 코드(2)](https://jueun275.tistory.com/entry/Java-%EB%B0%94%EC%9D%B4%ED%8A%B8-%EC%BD%94%EB%93%9C2-%EB%B0%94%EC%9D%B4%ED%8A%B8-%EC%BD%94%EB%93%9C-%EC%98%88%EC%A0%9C) 에 정리했습니다.**
 
