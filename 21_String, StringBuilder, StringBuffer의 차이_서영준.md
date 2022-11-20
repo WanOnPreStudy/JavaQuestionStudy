@@ -11,7 +11,7 @@ String은 **불변의 속성**을 가집니다.
 
 위의 예제를 살펴보면, 기존의 hello에 world가 더해져 hello world가 되었다고 생각할 수 있지만, 사실은 String 클래스의 참조변수 str이 **“hello world”라는 값을 가지고 있는** 새로운 메모리 영역, 즉 **새로운 String 객체를 가리키게 되는 것** 입니다.
 
-![String.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/658251c6-805e-46ad-a741-e93e0c2f1574/String.png)
+![String](https://user-images.githubusercontent.com/90227655/200802747-e883c844-25b5-4b84-b8dc-1894161505ee.png)
 
 - 변하지 않는 문자열을 자주 읽어 들이는 경우 좋은 성능을 기대할 수 있다.
 - 변경이 빈번하게 발생하는 알고리즘에 String 클래스를 사용하면 힙 메모리에 Garbage가 많아져 애플리케이션 성능에 영향을 끼칠수 도 있다.
@@ -33,7 +33,7 @@ String str = new String("hello world");     // new 연산자를 사용하는 방
 
 반면, **new 연산자를 통해 String 객체를 생성할 경우** 일반적인 객체와 동일하게 Heap 영역의 메모리에 객체를 생성합니다. 이미 **메모리에 같은 값이 존재하더라도 새로운 공간에 객체를 할당**하게 되는 것입니다.
 
-![String Constant Pool.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9cc643b0-a1e4-4024-a331-5f7d3b9138a5/String_Constant_Pool.png)
+![String Constant Pool](https://user-images.githubusercontent.com/90227655/200802765-69497ec6-daaf-4abb-925c-8ab653670820.png)
 
 - 리터럴로 생성한 String 객체는 String Constant Pool에 저장된다.
 - 리터럴로 String을 생성할 때 Constant Pool에 같은 값이 존재하면 객체를 재사용한다.
@@ -69,7 +69,7 @@ StringBuffer sb = new StringBuffer("hello");
 sb.append("world");
 ```
 
-![StringBuffer.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/664a6f8a-45fb-4b19-a87e-fdb6305da73d/StringBuffer.png)
+![StringBuffer](https://user-images.githubusercontent.com/90227655/200802797-f22f4255-0028-437e-9827-2edeaf8f17a4.png)
 
 기본적으로 StringBuilder와 StringBuffer는 둘 다 크기가 유연한 가변적인 특성을 지니고, 제공하는 메서드와 사용 방법도 모두 동일합니다.
 
@@ -97,3 +97,13 @@ sb.append("world");
 
 - **가변적인 특징**, 문자열 연산이 많은 알고리즘에서 사용
 - 동기화를 지원하지 않지만, **싱글 스레드 환경에서 가장 좋은 성능**
+
+</br>
+
+# 참고
+
+[[Java] String, StringBuffer, StringBuilder 차이 및 장단점](https://ifuwanna.tistory.com/221)
+
+[StringBuilder와 StringBuffer는 무슨 차이가 있는가?](https://velog.io/@heoseungyeon/StringBuilder%EC%99%80-StringBuffer%EB%8A%94-%EB%AC%B4%EC%8A%A8-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EC%9E%88%EB%8A%94%EA%B0%80)
+
+[String Constant Pool이란? | Java String Pool](https://starkying.tistory.com/entry/what-is-java-string-pool)
