@@ -60,7 +60,7 @@ public static String encodingObjectToByteArray(SerializableObject object) {
 
 **결과 확인**
 
-![Serializable.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/85b4f29c-34b8-48f3-8e18-f5d1d9a903c8/Serializable.png)
+![Serializable](https://user-images.githubusercontent.com/90227655/203539748-8e29d749-2473-4f66-8ae5-b7e0b9467c12.PNG)
 
 # 역직렬화 예제
 
@@ -88,7 +88,7 @@ public static void decodingObjectFromByteArray(String base64) {
 
 **결과 확인**
 
-![Deserializable.PNG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/15a0d7a1-8185-4b44-8500-a99f7078ebeb/Deserializable.png)
+![Deserializable](https://user-images.githubusercontent.com/90227655/203539774-7c0973fa-8723-467d-ae33-5a9d55f3cc29.PNG)
 
 만약 역직렬화 시 대상이 되는 객체에 변경이 있으면 `java.io.InvalidClassException` 예외를 발생시킵니다. 때문에 역직렬화 대상이 되는 객체는 반드시 **serialVersionUID를 일치 시켜 같은 버전임을 명시**해야 합니다. (없는 경우, 클래스의 기본 해쉬값을 사용)
 
